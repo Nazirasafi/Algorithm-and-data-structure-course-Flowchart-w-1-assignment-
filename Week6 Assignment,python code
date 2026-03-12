@@ -1,0 +1,29 @@
+class Student:
+    classroom = []
+
+    def __init__(self, name='', age=0, gender=''):
+        self.name = name
+        self.age = age
+        self.gender = gender
+
+    def show_my_info(self):
+        print('My name is {} and I am {} years old.'.format(self.name, self.age))
+
+    def add_student(self):
+        Student.classroom.append(self.name)
+
+    def show_classroom(self):
+        for student in Student.classroom:
+            print(student)
+
+# Test kısmı
+A = Student('Amneh', 19, 'Female')
+A.add_student()
+
+B = Student('Sena', 20, 'Female')
+B.add_student()
+
+C = Student('Yasin', 21, 'Male')
+C.add_student()
+
+A.show_classroom()
