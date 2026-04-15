@@ -1,0 +1,36 @@
+class Node:
+    def __init__(self, content):
+        self.content = content
+        self.next = None
+
+
+class Linked_list:
+    def __init__(self):
+        self.front = None
+        self.rear = None
+
+    def add_rear(self, new):
+        new_node = Node(new)
+
+        if self.rear is None:
+            self.front = new_node
+            self.rear = new_node
+        else:
+            self.rear.next = new_node
+            self.rear = new_node
+
+    def print_list(self):
+        current = self.front
+        while current is not None:
+            print(current.content, end=" ")
+            current = current.next
+
+
+my_str = "I’m working on linked lists in python"
+
+letters_list = Linked_list()
+
+for letter in my_str:
+    letters_list.add_rear(letter)
+
+letters_list.print_list()
