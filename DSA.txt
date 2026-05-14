@@ -1,0 +1,29 @@
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+def is_binary_tree(root):
+    visited = set()
+
+    def check(node):
+        if node is None:
+            return True
+
+        if id(node) in visited:
+            return False
+
+        visited.add(id(node))
+
+        return check(node.left) and check(node.right)
+
+    return check(root)
+
+
+root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+
+print(is_binary_tree(root))
